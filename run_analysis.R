@@ -76,4 +76,4 @@ names(subjectData)[1] <- "id"
 ad <- gather(activityData, variable, mean, -id, -type)
 sd <- gather(subjectData, variable, mean, -id, -type)
 tidydata <- rbind(ad, sd)
-write.table(tidydata, file = "./Getting and Cleaning Data/output.txt", quote = FALSE, row.names = FALSE, col.names = FALSE)
+write.table(tidydata, file = "./Getting and Cleaning Data/output.txt", row.names = FALSE)
