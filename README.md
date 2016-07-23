@@ -2,9 +2,12 @@
 
 README.md  explains how all of the scripts work and how they are connected.
 
+
 CodeBook.md describes the variables, the data, and any transformations or work that I performed to clean up the data 
 
+
 run_analysis.R a R script does the following.
+
 
 1.Merges the training and the test sets to create one data set.
 
@@ -15,6 +18,7 @@ run_analysis.R a R script does the following.
 4.Appropriately labels the data set with descriptive variable names.
 
 5.From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
 
 I read the dataset from X_train.txt, y_train.txt, X_test.txt, y_test.txt, subject_train.txt, subject_test.txt.
 
