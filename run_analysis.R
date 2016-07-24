@@ -6,6 +6,7 @@ test_y <- read.table("./Getting and Cleaning Data/UCI HAR Dataset/test/y_test.tx
 names <- read.table("./Getting and Cleaning Data/UCI HAR Dataset/features.txt")
 train_subject <- read.table("./Getting and Cleaning Data/UCI HAR Dataset/train/subject_train.txt")
 test_subject <- read.table("./Getting and Cleaning Data/UCI HAR Dataset/test/subject_test.txt")
+activity <- read.table("./Getting and Cleaning Data/UCI HAR Dataset/activity_labels.txt")
 
 # combine data together
 data_x <- rbind(train_x, test_x)
@@ -67,4 +68,6 @@ dataMelt <- melt(data, id = c("activity", "subject"),
 activityData <- dcast(dataMelt, activity ~ variable, mean)
 subjectData <- dcast(dataMelt, subject ~ variable, mean)
 tidyData <- dcast(dataMelt, subject + activity ~ variable, mean)
+activity_name <- activity[,2]
+tidyData$activity <- activity_name[tidyData$activity]
 write.table(tidyData, file = "./Getting and Cleaning Data/output.txt", row.names = FALSE)
