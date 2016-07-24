@@ -2,14 +2,14 @@
 Here are the meaning of variables in the data set.
 ===========================
 
-###The first column is the index of the type, for activity, there are 6 kinds, for subject, there are 30.
+###The first column is the index of subject. 
+Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.
 
-###the second column is the type of the average, activity or subject.
-activity:6 kinds of activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING)
+###the second column is the activity.
+6 kinds of activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING)
 
-subject:Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30 
 
-###the third column is the variable of the average
+###all other columns are the variable of the average
 The first word is the vairable in the dataset, others are descritions.
 
 tBodyAcc-mean()-X The mean value of the body acceleration signals in time domain signals on the x axis
@@ -144,4 +144,3 @@ fBodyBodyGyroJerkMag-mean() The mean value of FFT applied to the magnitude of th
 
 fBodyBodyGyroJerkMag-std() The standard deviation of FFT applied to the magnitude of the body angular velocity signals to obtain Jerk signals calculated using the Euclidean norm 
 
-###the forth column is the value of the average.
