@@ -62,18 +62,9 @@ output <- as.data.frame(cbind(name_for_codebook, sen))
 write.table(output, file = "./Getting and Cleaning Data/codebook.txt", quote = FALSE, row.names = FALSE, col.names = FALSE)
 
 # step5
-groupdata <- group_by(data, activity, subject)
-summarise(groupdata, sapply(data, mean))
-
 dataMelt <- melt(data, id = c("activity", "subject"),
                 measure.vars = names$V2[data_col])
 activityData <- dcast(dataMelt, activity ~ variable, mean)
 subjectData <- dcast(dataMelt, subject ~ variable, mean)
-activityData$type <- "activity"
-names(activityData)[1] <- "id"
-subjectData$type <- "subject"
-names(subjectData)[1] <- "id"
-ad <- gather(activityData, variable, mean, -id, -type)
-sd <- gather(subjectData, variable, mean, -id, -type)
-tidydata <- rbind(ad, sd)
-write.table(tidydata, file = "./Getting and Cleaning Data/output.txt", row.names = FALSE)
+tidyData <- dcast(dataMelt, subject + activity ~ variable, mean)
+write.table(tidyData, file = "./Getting and Cleaning Data/output.txt", row.names = FALSE)
